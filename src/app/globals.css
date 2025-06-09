@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 :root {
   --background: #ffffff;
@@ -18,4 +21,8 @@ body {
   color: var(--foreground);
   background: #945034;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-ranchers {
+  font-family: 'Ranchers', cursive !important;
 }
