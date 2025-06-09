@@ -1,5 +1,5 @@
 // lib/fonts.ts
-import { Ranchers, Andika } from "next/font/google";
+import { Ranchers, Andika, Sacramento } from "next/font/google";
 export const andika = Andika({
   subsets: ['latin'],
   weight: ['400'],
@@ -10,3 +10,9 @@ export const ranchers = Ranchers({
   weight: '400',
   display: 'swap',
 })
+export const sacramento = Sacramento({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+})
+

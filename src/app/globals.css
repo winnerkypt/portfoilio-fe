@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,6 +21,3 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.font-ranchers {
-  font-family: 'Ranchers', cursive !important;
-}

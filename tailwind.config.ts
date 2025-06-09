@@ -11,12 +11,6 @@ export default {
   ],
   theme: {
     container: {
-      // you can configure the container to be centered
-      center: true,
-
-      // or have default horizontal padding
-      padding: '1rem',
-
       // default breakpoints but with 40px removed
       screens: {
         sm: '600px',
@@ -35,6 +29,10 @@ export default {
         "light-yellow": "#FFEFD8",
         "green": "#5F8B4C",
         "brown": "#945034",
+      },
+      fontSize: {
+        'title': 'clamp(64px, 15vw, 256px)', // ปรับค่า min, preferred, max ได้
+        'sub-title': 'clamp(12px, 8vw, 128px)', // ปรับค่า min, preferred, max ได้
       },
     },
   },

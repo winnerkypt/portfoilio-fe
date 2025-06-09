@@ -1,5 +1,5 @@
 import { Navbar } from "@/core/components/navbar/navbar";
-import { About } from "@/core/components/about";
+import { Main } from "@/core/components/main";
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
         <Navbar />
       </div>
       <div>
-        <About />
+        <Main />
       </div>
     </>
   );
