@@ -7,7 +7,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 export const ContactMain = () => {
   return (
-    <div className="flex justify-around">
+    <div className="container flex justify-around">
       <div
         className={`${ranchers.className} font-bold text-green leading-none`}
         style={{ fontSize: "clamp(10px, 5vw, 30px)" }}
