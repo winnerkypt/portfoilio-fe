@@ -1,9 +1,9 @@
 "use client";
-export const NavArrow = () => {
+export const NavDesk = () => {
   return (
     <div>
       <svg
-        className="w-20 xs:w-36 sm:w-40 md:w-44 lg:w-48 xl:w-52 h-10"
+        className="w-24 xs:w-36 sm:w-40 md:w-44 lg:w-48 xl:w-52 h-10"
         viewBox="0 0 600 40"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

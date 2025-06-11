@@ -9,15 +9,28 @@ export const ContactMain = () => {
   return (
     <div className="flex justify-around">
       <div
-        className={`${ranchers.className} text-[36px] font-bold text-green leading-none`}
+        className={`${ranchers.className} font-bold text-green leading-none`}
+        style={{ fontSize: "clamp(10px, 5vw, 30px)" }}
       >
         &lt;/&gt;
       </div>
       <div className="flex justify-center gap-x-3">
-        <PhoneIcon className="text-green" sx={{ fontSize: 32 }} />
-        <EmailIcon className="text-green" sx={{ fontSize: 32 }} />
-        <GitHubIcon className="text-green" sx={{ fontSize: 32 }} />
-        <LinkedInIcon className="text-green" sx={{ fontSize: 32 }} />
+        <PhoneIcon
+          className="text-green"
+          style={{ fontSize: "clamp(10px, 5vw, 30px)" }}
+        />
+        <EmailIcon
+          className="text-green"
+          style={{ fontSize: "clamp(10px, 5vw, 30px)" }}
+        />
+        <GitHubIcon
+          className="text-green"
+          style={{ fontSize: "clamp(10px, 5vw, 30px)" }}
+        />
+        <LinkedInIcon
+          className="text-green"
+          style={{ fontSize: "clamp(10px, 5vw, 30px)" }}
+        />
       </div>
     </div>
   );
