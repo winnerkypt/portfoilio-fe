@@ -7,7 +7,7 @@ export default function Home() {
       <div>
         <Navbar />
       </div>
-      <div>
+      <div className="pt-[70px]">
         <Main />
       </div>
     </>

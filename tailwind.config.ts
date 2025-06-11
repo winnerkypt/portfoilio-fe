@@ -19,6 +19,14 @@ export default {
         xl: '1240px',
         '2xl': '1496px',
       },
+      center: true,
+      padding: {
+        DEFAULT: '1rem',     // 16px margin ทุกด้าน
+        sm: '2rem',          // 32px margin บน sm breakpoint ขึ้นไป
+        lg: '4rem',          // 64px margin บน lg breakpoint ขึ้นไป
+        xl: '5rem',          // 80px margin บน xl breakpoint ขึ้นไป
+        '2xl': '6rem',       // 96px margin บน 2xl breakpoint ขึ้นไป
+      },
     },
     extend: {
       colors: {
@@ -31,8 +39,9 @@ export default {
         "brown": "#945034",
       },
       fontSize: {
-        'title': 'clamp(64px, 15vw, 256px)', // ปรับค่า min, preferred, max ได้
-        'sub-title': 'clamp(12px, 8vw, 128px)', // ปรับค่า min, preferred, max ได้
+        'title': 'clamp(64px, 15vw, 256px)',
+        'sub-title': 'clamp(12px, 8vw, 128px)',
+        'nav': 'clamp(10px, 3vw, 18px)',
       },
     },
   },
