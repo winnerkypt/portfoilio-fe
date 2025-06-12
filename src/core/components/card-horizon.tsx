@@ -1,21 +1,29 @@
 "use client";
+import { useMediaQuery } from "react-responsive";
 import { andika, ranchers } from "../libs/fonts";
-import Image from "next/image";
 
 export const CardHorizon = () => {
+  const isTablet = useMediaQuery({ maxWidth: 983 });
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+
   return (
-    <div className="container grid grid-cols-2 items-stretch">
-      <div className="grid  gap-4 bg-light-yellow shadow-lg rounded-l-lg p-12 justify-center">
+    <div
+      className={`container grid ${
+        isTablet ? "grid-cols-1" : "grid-cols-2"
+      } items-stretch shadow-b-lg`}
+    >
+      <div
+        className={`grid  gap-4 bg-light-yellow ${
+          isMobile ? "p-8" : "p-12"
+        } justify-center  ${isTablet ? "rounded-lg" : "rounded-l-lg"}`}
+      >
         <h1
           className={`${ranchers.className} text-green text-center leading-none`}
           style={{ fontSize: "clamp(10px, 10vw, 64px)" }}
         >
           helloooo
         </h1>
-        <p
-          className={`${andika.className} text-brown text-base`}
-          style={{ fontSize: "clamp(10px, 10vw, 16px)" }}
-        >
+        <p className={`${andika.className} text-brown text-content`}>
           I'm a software engineer with practical experience in developing CMS
           platforms, designing RESTful APIs, and managing full-cycle web
           deployment. Familiar with quality assurance practices including
@@ -26,13 +34,17 @@ export const CardHorizon = () => {
           and contribute to building scalable and high-quality backend systems.
         </p>
       </div>
-      <div className="relative">
-        <img
-          src={"/images/profile.png"}
-          alt="Portfolio Image"
-          className="w-full h-full object-cover rounded-r-lg shadow-lg"
-        />
-      </div>
+      {isTablet ? (
+        ""
+      ) : (
+        <div className="relative">
+          <img
+            src={"/images/profile.png"}
+            alt="Portfolio Image"
+            className="w-full h-full object-cover rounded-r-lg shadow-lg"
+          />
+        </div>
+      )}
     </div>
   );
 };

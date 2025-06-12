@@ -42,6 +42,7 @@ export default {
         'title': 'clamp(64px, 15vw, 256px)',
         'sub-title': 'clamp(12px, 8vw, 128px)',
         'nav': 'clamp(10px, 3vw, 18px)',
+        'content': 'clamp(10px, 3vw, 16px)',
       },
     },
   },
