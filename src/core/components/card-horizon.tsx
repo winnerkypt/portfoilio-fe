@@ -1,11 +1,22 @@
 "use client";
 import { useMediaQuery } from "react-responsive";
 import { andika, ranchers } from "../libs/fonts";
-
+import React, { useEffect, useState } from "react";
 export const CardHorizon = () => {
+  const [isMounted, setIsMounted] = useState(false);
   const isTablet = useMediaQuery({ maxWidth: 983 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // แสดง NavDesk เป็นค่าเริ่มต้นจนกว่า Component จะ Mount
+  if (!isMounted) {
+    return (
+      <div className="container grid grid-cols-1 items-stretch shadow-b-lg"></div>
+    );
+  }
   return (
     <div
       className={`container grid ${
