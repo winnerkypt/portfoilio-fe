@@ -34,9 +34,9 @@ export const Navbar = () => {
         <div className="text-nav font-bold">
           <span className="text-brown">&lt;SoftwareEngineer</span>
           <span className="text-green"> title</span>
-          <span className="text-brown"> = "</span>
+          <span className="text-brown"> = &quot;</span>
           <span className="text-pink">Portfolio</span>
-          <span className="text-brown">"/&gt;</span>
+          <span className="text-brown">&quot;/&gt;</span>
         </div>
         {isMobile ? <NavMobile navItems={navItems}/> : <NavDesk />}
       </div>

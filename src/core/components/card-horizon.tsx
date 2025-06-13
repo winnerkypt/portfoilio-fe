@@ -2,6 +2,7 @@
 import { useMediaQuery } from "react-responsive";
 import { andika, ranchers } from "../libs/fonts";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 export const CardHorizon = () => {
   const [isMounted, setIsMounted] = useState(false);
   const isTablet = useMediaQuery({ maxWidth: 983 });
@@ -35,23 +36,25 @@ export const CardHorizon = () => {
           helloooo
         </h1>
         <p className={`${andika.className} text-brown text-content`}>
-          I'm a software engineer with practical experience in developing CMS
-          platforms, designing RESTful APIs, and managing full-cycle web
+          I&apos;m a software engineer with practical experience in developing CMS
+          platforms&lsquo; designing RESTful APIs&lsquo; and managing full-cycle web
           deployment. Familiar with quality assurance practices including
           writing test cases to ensure system reliability. Recently contributed
           to UI design to gain a broader understanding of user experience. With
-          nearly one year of professional experience, I am seeking a Backend
+          nearly one year of professional experience&lsquo; I am seeking a Backend
           Engineer position where I can further enhance my technical expertise
           and contribute to building scalable and high-quality backend systems.
         </p>
       </div>
       {isTablet ? (
-        ""
+        <div></div>
       ) : (
         <div className="relative">
-          <img
+          <Image
             src={"/images/profile.png"}
             alt="Portfolio Image"
+            width={500}
+            height={500}
             className="w-full h-full object-cover rounded-r-lg shadow-lg"
           />
         </div>

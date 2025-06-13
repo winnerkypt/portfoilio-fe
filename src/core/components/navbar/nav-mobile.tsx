@@ -5,11 +5,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import React, { useState } from "react";
 import { NavBarType } from "./type";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 export const NavMobile = ({ navItems }: { navItems: NavBarType[] }) => {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
