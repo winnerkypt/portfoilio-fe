@@ -1,5 +1,6 @@
 import { CardHorizon } from "@/core/components/card-horizon";
 import { Navbar } from "@/core/components/navbar/navbar";
+import { Footer } from "@/core/presentations/footer";
 import { Main } from "@/core/presentations/main";
 import { Skill } from "@/core/presentations/skills";
 
@@ -14,6 +15,7 @@ export default function Home() {
         <CardHorizon />
         <Skill />
       </div>
+        <Footer />
     </>
   );
 }
