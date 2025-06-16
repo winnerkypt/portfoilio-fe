@@ -41,10 +41,10 @@ export default {
       fontSize: {
         'title': 'clamp(64px, 15vw, 256px)',
         'sub-title': 'clamp(12px, 8vw, 128px)',
-        '48': 'clamp(20px, 3vw, 48px)',
+        '48': 'clamp(24px, 3vw, 48px)',
         '36': 'clamp(20px, 3vw, 36px)',
-        'nav': 'clamp(10px, 3vw, 18px)',
-        'content': 'clamp(10px, 3vw, 16px)',
+        'nav': 'clamp(10px, 2vw, 18px)',
+        'content': 'clamp(10px, 1.5vw, 16px)',
       },
     },
   },
