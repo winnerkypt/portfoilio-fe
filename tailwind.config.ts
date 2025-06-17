@@ -39,7 +39,7 @@ export default {
         "brown": "#945034",
       },
       fontSize: {
-        'title': 'clamp(64px, 15vw, 256px)',
+        'title': 'clamp(84px, 15vw, 256px)',
         'sub-title': 'clamp(12px, 8vw, 128px)',
         '48': 'clamp(24px, 3vw, 48px)',
         '36': 'clamp(20px, 3vw, 36px)',
