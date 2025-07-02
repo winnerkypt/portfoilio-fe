@@ -1,6 +1,7 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Card } from "../components/card";
 import { ranchers } from "../libs/fonts";
+import { projects } from "../data/projects";
 
 export const Projects = () => {
   return (
@@ -23,9 +24,12 @@ export const Projects = () => {
           </div>
         </div>
         <div className="flex justify-between">
-          <Card />
-          <Card />
-          <Card />
+          {projects.map((project) => (
+            <Card
+              key={project.id}
+              project={project}
+            />
+          ))}
         </div>
       </div>
     </div>

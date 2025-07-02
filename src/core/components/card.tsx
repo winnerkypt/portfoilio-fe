@@ -1,37 +1,59 @@
+"use client";
+
 import Image from "next/image";
 import { ranchers } from "../libs/fonts";
-import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import React, { useState } from "react";
+import { Project } from "../data/types/Project";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
-export const Card = () => {
+interface CardProps {
+  project: Project;
+}
+
+export const Card: React.FC<CardProps> = ({ project }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="bg-brown p-4 w-72 h-[350px] leading-[1.25]">
-      <Image
-        src={"/images/profile.png"}
-        alt="Portfolio Image"
-        width={500}
-        height={500}
-        className="w-full h-48 object-cover "
-      />
-      <div className="grid gap-2 py-2 ">
-        <div className="flex flex-row justify-between items-center">
-          <div>
-            <p className={`text-[12px] text-pink font-bold `}>Atmosph</p>
-            <h1 className={`${ranchers.className} text-20 text-light-yellow `}>
-              Kasikorn Securities
-            </h1>
+    <motion.div
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      animate={{ scale: isHovered ? 1.05 : 1 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="group bg-brown p-4 w-72 h-[300px] leading-[1.25]"
+    >
+      <Link href={project.link} target="_blank">
+        <Image
+          src={project.image}
+          alt="Portfolio Image"
+          width={500}
+          height={500}
+          className="w-full h-[150px] object-cover"
+        />
+        <div className="grid gap-2 py-2">
+          <div className="flex flex-row justify-between items-center">
+            <div className="grid gap-[2px]">
+              <p className="text-[12px] text-pink font-bold">Atmosph</p>
+              <h1 className={`${ranchers.className} text-20 text-light-yellow`}>
+                {project.name}
+              </h1>
+            </div>
+            <motion.div
+              animate={{ rotate: isHovered ? -45 : 0 }}
+              transition={{ duration: 0.3 }}
+              className="bg-green rounded-full p-1 text-light-yellow"
+            >
+              <ArrowForwardIcon
+                style={{ fontSize: "clamp(10px, 3vw, 25px)", color: "#FFF9DC" }}
+              />
+            </motion.div>
           </div>
-          <ArrowOutwardIcon
-            className=" bg-green rounded-full p-1 text-light-yellow"
-            style={{ fontSize: "clamp(10px, 3vw, 30px)" }}
-          />
+          <p className="text-[12px] text-light-yellow leading-[1.25] font-light line-clamp-3">
+            {project.description}
+          </p>
         </div>
-        <p className="text-[12px] text-light-yellow leading-[1.25] font-light line-clamp-3">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto
-          esse deleniti hic ipsa quidem mollitia dolorem odit ea laboriosam
-          molestias soluta atque sint officia quo, quae voluptates a fugit
-          doloremque!t officia quo, quae voluptates a fugit doloremque!
-        </p>
-      </div>
-    </div>
+      </Link>
+    </motion.div>
   );
 };
