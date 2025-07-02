@@ -43,7 +43,7 @@ export default {
         'sub-title': 'clamp(12px, 8vw, 128px)',
         '48': 'clamp(24px, 3vw, 48px)',
         '36': 'clamp(20px, 3vw, 36px)',
-        '20': 'clamp(10px, 3vw, 20px)',
+        '20': 'clamp(10px, 2vw, 20px)',
         'nav': 'clamp(10px, 2vw, 18px)',
         'content': 'clamp(10px, 1.5vw, 16px)',
       },
