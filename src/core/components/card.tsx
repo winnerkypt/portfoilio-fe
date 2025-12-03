@@ -21,25 +21,25 @@ export const Card: React.FC<CardProps> = ({ project }) => {
       onHoverEnd={() => setIsHovered(false)}
       animate={{ scale: isHovered ? 1.05 : 1 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="group bg-brown p-4 w-72 h-[300px] leading-[1.25]"
+      className="group bg-brown p-4 w-60 md:w-full lg:w-72 h-full leading-[1.25] rounded-md"
     >
-      <Link href={project.link} target="_blank">
+      <Link href={project.link} target="_blank" className="block h-full">
         <Image
           src={project.image}
           alt="Portfolio Image"
           width={500}
           height={500}
-          className="w-full h-[150px] object-cover"
+          className="w-full lg:h-[150px] h-[120px] object-cover rounded-md"
         />
-        <div className="grid gap-2 py-2">
+        <div className="flex flex-col items-center justify-between gap-3 mt-3">
           <div className="flex flex-row justify-between items-center">
             <div className="grid gap-[2px]">
-              <p className="text-[12px] text-pink font-bold">Atmosph</p>
+              {/* <p className="text-[12px] text-pink font-bold">Atmosph</p> */}
               <h1 className={`${ranchers.className} text-20 text-light-yellow`}>
                 {project.name}
               </h1>
             </div>
-            <motion.div
+            {/* <motion.div
               animate={{ rotate: isHovered ? -45 : 0 }}
               transition={{ duration: 0.3 }}
               className="bg-green rounded-full p-1 text-light-yellow"
@@ -47,11 +47,16 @@ export const Card: React.FC<CardProps> = ({ project }) => {
               <ArrowForwardIcon
                 style={{ fontSize: "clamp(10px, 3vw, 25px)", color: "#FFF9DC" }}
               />
-            </motion.div>
+            </motion.div> */}
           </div>
-          <p className="text-[12px] text-light-yellow leading-[1.25] font-light line-clamp-3">
+          <p className="text-[12px] text-light-yellow text-center leading-[1.25] font-light line-clamp-3">
             {project.description}
           </p>
+          <div
+            className={`${ranchers.className} bg-green text-light-yellow rounded-md p-1 text-[12px]`}
+          >
+            Click to Website!
+          </div>
         </div>
       </Link>
     </motion.div>
