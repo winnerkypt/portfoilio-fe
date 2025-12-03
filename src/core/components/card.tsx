@@ -31,7 +31,7 @@ export const Card: React.FC<CardProps> = ({ project }) => {
           height={500}
           className="w-full lg:h-[150px] h-[120px] object-cover rounded-md"
         />
-        <div className="flex flex-col items-center justify-between gap-3 mt-3">
+        <div className="flex flex-col items-center justify-between mt-3">
           <div className="flex flex-row justify-between items-center">
             <div className="grid gap-[2px]">
               {/* <p className="text-[12px] text-pink font-bold">Atmosph</p> */}
@@ -53,7 +53,7 @@ export const Card: React.FC<CardProps> = ({ project }) => {
             {project.description}
           </p>
           <div
-            className={`${ranchers.className} bg-green text-light-yellow rounded-md p-1 text-[12px]`}
+            className={`${ranchers.className} bg-green text-light-yellow rounded-md p-1 text-[12px] mt-3`}
           >
             Click to Website!
           </div>

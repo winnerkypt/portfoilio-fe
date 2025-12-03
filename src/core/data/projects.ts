@@ -4,7 +4,7 @@ export const projects: Project[] = [
     {
         id: "1",
         name: "EDU CU",
-        description: "Troika Syndicate website showcasing their projects.",
+        description: "[UAT] A website for collecting various information about the Faculty of Education, Chulalongkorn University, including scholarships, faculty personnel, and research.",
         image: "/images/projects/educu.png",
         link: "https://uat.edu.chula.ac.th/th",
         tags: ["Next.js", "Tailwind CSS", "TypeScript"],
@@ -13,7 +13,7 @@ export const projects: Project[] = [
     {
         id: "2",
         name: "Reborna Creative",
-        description: "Troika Syndicate website showcasing their projects.",
+        description: "[UAT] Line Official Account (Line OA) for Reborna TikTok Affiliates (Campaign and Account Status Management Platform)",
         image: "/images/projects/rbn.png",
         link: "https://lin.ee/TEpzE7o",
         tags: ["Next.js", "Tailwind CSS", "TypeScript"],
