@@ -1,4 +1,3 @@
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Card } from "../components/card";
 import { ranchers } from "../libs/fonts";
 import { projects } from "../data/projects";

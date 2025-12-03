@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { ranchers } from "../libs/fonts";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import React, { useState } from "react";
 import { Project } from "../data/types/Project";
 import Link from "next/link";
