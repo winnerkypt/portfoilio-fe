@@ -36,7 +36,7 @@ export const Skill = () => {
           {skills.map((skill) => (
             <li
               key={skill.id}
-              className="flex items-center gap-3 rounded-card border border-ink/10 bg-white/45 px-4 py-3 shadow-raise transition-[transform,border-color,background-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-teal/35 hover:bg-white/70"
+              className="flex items-center gap-3 rounded-card border border-ink/10 bg-white/45 px-4 py-3 shadow-raise transition-[transform,border-color,background-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-moss/35 hover:bg-white/70"
             >
               <Image
                 src={skill.logo}

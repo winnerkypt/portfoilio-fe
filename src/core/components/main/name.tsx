@@ -4,7 +4,7 @@ export const NameMain = () => {
   return (
     <div className="text-center">
       <p
-        className={`${andika.className} text-micro uppercase tracking-[0.28em] text-teal`}
+        className={`${andika.className} text-micro uppercase tracking-[0.28em] text-moss`}
       >
         Software Engineer &middot; Bangkok
       </p>

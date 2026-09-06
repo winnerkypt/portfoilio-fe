@@ -14,7 +14,7 @@ export const ContactMain = () => {
           {...(isExternal(link.href)
             ? { target: "_blank", rel: "noreferrer noopener" }
             : {})}
-          className="flex h-10 w-10 items-center justify-center rounded-pill text-green transition-[color,background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:bg-teal-soft hover:text-teal"
+          className="flex h-10 w-10 items-center justify-center rounded-pill text-green transition-[color,background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:bg-moss-soft hover:text-moss"
         >
           <ContactIcon icon={link.icon} className="text-icon" />
         </a>

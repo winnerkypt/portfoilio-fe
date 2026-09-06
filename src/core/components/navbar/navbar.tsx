@@ -11,13 +11,13 @@ export const Navbar = () => {
           href="#top"
           className="text-nav font-bold transition-opacity duration-200 ease-out hover:opacity-70"
         >
-          <span className="text-teal/50">&lt;</span>
+          <span className="text-moss/50">&lt;</span>
           <span className="text-brown">SoftwareEngineer</span>
           <span className="text-green"> title</span>
           <span className="text-ink/45">=&quot;</span>
           <span className="text-pink">Portfolio</span>
           <span className="text-ink/45">&quot;</span>
-          <span className="text-teal/50">/&gt;</span>
+          <span className="text-moss/50">/&gt;</span>
         </Link>
 
         <NavDesk navItems={navItems} />

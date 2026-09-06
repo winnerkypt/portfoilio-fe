@@ -4,9 +4,9 @@ export const projects: Project[] = [
     {
         id: "1",
         name: "EDU CU",
-        description: "[UAT] A website for collecting various information about the Faculty of Education, Chulalongkorn University, including scholarships, faculty personnel, and research.",
+        description: "A website for collecting various information about the Faculty of Education, Chulalongkorn University, including scholarships, faculty personnel, and research.",
         image: "/images/projects/educu.png",
-        link: "https://uat.edu.chula.ac.th/th",
+        link: "https://www.edu.chula.ac.th/th",
         tags: ["Next.js", "Tailwind CSS", "TypeScript"],
         createdAt: new Date("2023-01-01"),
     },

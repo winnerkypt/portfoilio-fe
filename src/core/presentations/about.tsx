@@ -30,7 +30,7 @@ export const About = () => {
             {focusAreas.map((area) => (
               <li
                 key={area}
-                className={`${andika.className} rounded-pill border border-teal/25 bg-teal-soft px-3 py-1.5 text-small text-teal`}
+                className={`${andika.className} rounded-pill border border-moss/25 bg-moss-soft px-3 py-1.5 text-small text-moss`}
               >
                 {area}
               </li>

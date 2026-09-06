@@ -15,14 +15,14 @@
   --brown: 138 72 45;
   --pink: 240 130 130;
 
-  /* cool counterweight */
-  --ink: 30 42 39;
-  --teal: 38 99 95;
-  --teal-soft: 219 234 230;
+  /* earth counterweight — moss, not teal: the warm family has no blue in it */
+  --ink: 44 29 22;
+  --moss: 95 107 51;
+  --moss-soft: 236 233 213;
 
-  --green: 88 130 71;
+  --green: 92 118 58;
 
-  --focus: rgb(var(--teal));
+  --focus: rgb(var(--moss));
 }
 
 html {
@@ -41,7 +41,7 @@ body {
 .surface-paper {
   background-color: rgb(var(--cream));
   background-image:
-    radial-gradient(ellipse at 50% 0%, rgb(var(--teal) / 0.07), transparent 55%);
+    radial-gradient(ellipse at 50% 0%, rgb(var(--moss) / 0.06), transparent 55%);
 }
 
 /*
@@ -51,14 +51,14 @@ body {
 .surface-warm {
   background-color: rgb(var(--cream-deep));
   background-image:
-    radial-gradient(ellipse at 50% 100%, rgb(var(--teal) / 0.05), transparent 60%);
+    radial-gradient(ellipse at 50% 100%, rgb(var(--moss) / 0.05), transparent 60%);
 }
 
 .surface-ink {
   background-color: rgb(var(--ink));
   background-image:
-    radial-gradient(circle at 80% 10%, rgb(var(--teal) / 0.32), transparent 45%),
-    radial-gradient(circle at 12% 88%, rgb(var(--brown) / 0.3), transparent 45%);
+    radial-gradient(circle at 80% 10%, rgb(var(--brown) / 0.42), transparent 48%),
+    radial-gradient(circle at 12% 88%, rgb(var(--moss) / 0.28), transparent 45%);
 }
 
 :where(a, button, [tabindex]):focus-visible {
@@ -78,4 +78,13 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* The projects rail scrolls horizontally; the native bar would cut the cards. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

@@ -41,10 +41,10 @@ export default {
         brown: withAlpha("--brown"),
         pink: withAlpha("--pink"),
 
-        // cool counterweight
+        // earth counterweight
         ink: withAlpha("--ink"),
-        teal: withAlpha("--teal"),
-        "teal-soft": withAlpha("--teal-soft"),
+        moss: withAlpha("--moss"),
+        "moss-soft": withAlpha("--moss-soft"),
 
         green: withAlpha("--green"),
 
