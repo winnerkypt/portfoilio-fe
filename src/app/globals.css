@@ -2,22 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/*
+ * Colors are stored as raw RGB channels so Tailwind's `/opacity` modifiers
+ * resolve (`rgb(var(--ink) / 0.75)`). Using `var(--ink): #22302c` directly
+ * silently breaks every `text-ink/75`-style utility.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* warm family */
+  --cream: 255 244 229;
+  --cream-deep: 246 225 192;
+  --sand: 255 221 171;
+  --brown: 138 72 45;
+  --pink: 240 130 130;
+
+  /* cool counterweight */
+  --ink: 30 42 39;
+  --teal: 38 99 95;
+  --teal-soft: 219 234 230;
+
+  --green: 88 130 71;
+
+  --focus: rgb(var(--teal));
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
+html {
+  scroll-behavior: smooth;
+  /* fixed navbar is 70px — keep anchored sections clear of it */
+  scroll-padding-top: 86px;
+}
 
 body {
-  color: var(--foreground);
-  background: #945034;
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--ink));
+  background: rgb(var(--brown));
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Alternating grounds so adjacent bands never merge into one flat wash. */
+.surface-paper {
+  background-color: rgb(var(--cream));
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgb(var(--teal) / 0.07), transparent 55%);
+}
+
+/*
+ * Kept near-flat on purpose: the hero's wave is filled with this exact base
+ * color, so any strong gradient here would reappear as a seam under the wave.
+ */
+.surface-warm {
+  background-color: rgb(var(--cream-deep));
+  background-image:
+    radial-gradient(ellipse at 50% 100%, rgb(var(--teal) / 0.05), transparent 60%);
+}
+
+.surface-ink {
+  background-color: rgb(var(--ink));
+  background-image:
+    radial-gradient(circle at 80% 10%, rgb(var(--teal) / 0.32), transparent 45%),
+    radial-gradient(circle at 12% 88%, rgb(var(--brown) / 0.3), transparent 45%);
+}
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

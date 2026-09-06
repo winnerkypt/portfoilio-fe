@@ -1,24 +1,16 @@
-"use client";
-
-import Image from "next/image";
 import { ContactMain } from "../components/main/contact";
 import { NameMain } from "../components/main/name";
+import { Wave } from "../components/wave";
+
 export const Main = () => {
   return (
-    <div className="mb-9">
-      <div className="bg-light-yellow pt-12">
-        <div className="container">
-          <ContactMain />
-          <NameMain />
-        </div>
+    <section id="top" className="surface-paper">
+      <div className="container flex flex-col gap-5 pb-6 pt-8 sm:pt-12">
+        <NameMain />
+        <ContactMain />
       </div>
-      <Image
-        src="/images/wave.svg"
-        alt="Hero Image"
-        width={100}
-        height={100}
-        className="w-full "
-      />
-    </div>
+
+      <Wave />
+    </section>
   );
 };

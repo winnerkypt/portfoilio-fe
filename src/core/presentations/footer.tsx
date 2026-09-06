@@ -1,61 +1,32 @@
-"use client";
-
 import Image from "next/image";
+import { andika } from "../libs/fonts";
 import { ContactFooter } from "../components/footer/contact";
-import { useMediaQuery } from "react-responsive";
-import React, { useEffect, useState } from "react";
-export const Footer = () => {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
-  const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-  if (!isMounted) {
-    return (
-      <footer className="bg-brown text-white flex flex-row gap-[10%]">
-        <Image
-          src="/images/footer.png"
-          alt="Logo"
-          width={700}
-          height={50}
-          className={`h-auto object-cover`}
-        />
-        <ContactFooter className="relative" />
-      </footer>
-    );
-  }
+export const Footer = () => {
   return (
-    <footer
-      className={`bg-brown text-white flex ${
-        isMobile ? " justify-center" : " justify-between"
-      }`}
-    >
-      {isMobile ? (
+    <footer id="contact" className="scroll-mt-24 bg-brown text-cream">
+      <div className="container grid items-center gap-10 py-16 lg:grid-cols-2 lg:gap-16 lg:py-20">
+        <ContactFooter />
+
         <Image
           src="/images/footer.png"
-          alt="Logo"
-          width={700}
-          height={50}
-          className={`h-auto w-full object-cover absolute`}
+          alt=""
+          aria-hidden
+          width={1414}
+          height={764}
+          sizes="(max-width: 1024px) 90vw, 45vw"
+          className="order-first h-auto w-full rounded-card object-cover lg:order-last"
         />
-      ) : (
-        <Image
-          src="/images/footer.png"
-          alt="Logo"
-          width={700}
-          height={50}
-          className={`h-auto object-cover `}
-          style={{ width: "clamp(10px, 50vw, 700px)" }}
-        />
-      )}
-      <ContactFooter
-        className={` relative  ${
-          isMobile
-            ? "top-5"
-            : "gap-[3%] p-4 text-light-yellow flex flex-col justify-center"
-        }`}
-      />
+      </div>
+
+      <div className="border-t border-cream/15">
+        <div
+          className={`${andika.className} container flex flex-col items-center justify-between gap-2 py-5 text-small text-cream/60 sm:flex-row`}
+        >
+          <p>&copy; {new Date().getFullYear()} Kanyapat Wittayamanitkul</p>
+          <p>Built with Next.js &amp; Tailwind CSS</p>
+        </div>
+      </div>
     </footer>
   );
 };

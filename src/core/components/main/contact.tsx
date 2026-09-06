@@ -1,37 +1,24 @@
-"use client";
+import { contactLinks } from "../../data/contacts";
+import { ContactIcon } from "../contact-icon";
 
-import { ranchers } from "../../libs/fonts";
-import PhoneIcon from "@mui/icons-material/Phone";
-import EmailIcon from "@mui/icons-material/Email";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+const isExternal = (href: string) => href.startsWith("http");
+
 export const ContactMain = () => {
   return (
-    <div className="flex justify-around">
-      <div
-        className={`${ranchers.className} font-bold text-green leading-none`}
-          style={{ fontSize: "clamp(10px, 3vw, 30px)" }}
-      >
-        &lt;/&gt;
-      </div>
-      <div className="flex justify-center gap-x-3">
-        <PhoneIcon
-          className="text-green"
-          style={{ fontSize: "clamp(10px, 3vw, 30px)" }}
-        />
-        <EmailIcon
-          className="text-green"
-          style={{ fontSize: "clamp(10px, 3vw, 30px)" }}
-        />
-        <GitHubIcon
-          className="text-green"
-          style={{ fontSize: "clamp(10px, 3vw, 30px)" }}
-        />
-        <LinkedInIcon
-          className="text-green"
-          style={{ fontSize: "clamp(10px, 3vw, 30px)" }}
-        />
-      </div>
+    <div className="flex items-center justify-center gap-2 sm:gap-3">
+      {contactLinks.map((link) => (
+        <a
+          key={link.id}
+          href={link.href}
+          aria-label={`${link.icon}: ${link.label}`}
+          {...(isExternal(link.href)
+            ? { target: "_blank", rel: "noreferrer noopener" }
+            : {})}
+          className="flex h-10 w-10 items-center justify-center rounded-pill text-green transition-[color,background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:bg-teal-soft hover:text-teal"
+        >
+          <ContactIcon icon={link.icon} className="text-icon" />
+        </a>
+      ))}
     </div>
   );
 };

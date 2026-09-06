@@ -1,4 +1,4 @@
-export type NavBarType = {
-    label: string;
-    href: string;
-};
+export interface NavBarType {
+  label: string;
+  href: string;
+}

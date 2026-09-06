@@ -1,63 +1,61 @@
-"use client";
-
 import Image from "next/image";
-import { ranchers } from "../libs/fonts";
-import React, { useState } from "react";
-import { Project } from "../data/types/Project";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { andika, ranchers } from "../libs/fonts";
+import { Project } from "../data/types/Project";
+import { Icon } from "./icon";
 
 interface CardProps {
   project: Project;
 }
 
 export const Card: React.FC<CardProps> = ({ project }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
-    <motion.div
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      animate={{ scale: isHovered ? 1.05 : 1 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="group bg-brown p-4 w-60 md:w-full lg:w-72 h-full leading-[1.25] rounded-md"
-    >
-      <Link href={project.link} target="_blank" className="block h-full">
-        <Image
-          src={project.image}
-          alt="Portfolio Image"
-          width={500}
-          height={500}
-          className="w-full lg:h-[150px] h-[120px] object-cover rounded-md"
-        />
-        <div className="flex flex-col items-center justify-between mt-3">
-          <div className="flex flex-row justify-between items-center">
-            <div className="grid gap-[2px]">
-              {/* <p className="text-[12px] text-pink font-bold">Atmosph</p> */}
-              <h1 className={`${ranchers.className} text-20 text-light-yellow`}>
-                {project.name}
-              </h1>
-            </div>
-            {/* <motion.div
-              animate={{ rotate: isHovered ? -45 : 0 }}
-              transition={{ duration: 0.3 }}
-              className="bg-green rounded-full p-1 text-light-yellow"
+    <article className="h-full">
+      <Link
+        href={project.link}
+        target="_blank"
+        rel="noreferrer noopener"
+        className="group flex h-full flex-col overflow-hidden rounded-card border border-cream/12 bg-brown shadow-raise transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-pink/50 hover:shadow-lift"
+      >
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-ink/30">
+          <Image
+            src={project.image}
+            alt={`${project.name} screenshot`}
+            fill
+            sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 30vw"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+          />
+        </div>
+
+        <div className="flex flex-1 flex-col gap-3 p-5">
+          <div className="flex items-start justify-between gap-3">
+            <h3 className={`${ranchers.className} text-h3 text-cream`}>
+              {project.name}
+            </h3>
+            <span
+              aria-hidden
+              className="mt-0.5 shrink-0 text-pink transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             >
-              <ArrowForwardIcon
-                style={{ fontSize: "clamp(10px, 3vw, 25px)", color: "#FFF9DC" }}
-              />
-            </motion.div> */}
+              <Icon name="arrowOutward" className="text-icon" />
+            </span>
           </div>
-          <p className="text-[12px] text-light-yellow text-center leading-[1.25] font-light line-clamp-3">
+
+          <p className={`${andika.className} text-small text-cream/70`}>
             {project.description}
           </p>
-          <div
-            className={`${ranchers.className} bg-green text-light-yellow rounded-md p-1 text-[12px] mt-3`}
-          >
-            Click to Website!
-          </div>
+
+          <ul className="mt-auto flex flex-wrap gap-1.5 pt-2">
+            {project.tags.map((tag) => (
+              <li
+                key={tag}
+                className={`${andika.className} rounded-pill bg-cream/10 px-2.5 py-1 text-micro uppercase text-sand`}
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
         </div>
       </Link>
-    </motion.div>
+    </article>
   );
 };

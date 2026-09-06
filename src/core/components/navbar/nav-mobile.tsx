@@ -1,54 +1,83 @@
 "use client";
-import Drawer from "@mui/material/Drawer";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
-import React, { useState } from "react";
-import { NavBarType } from "./type";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { NavBarType } from "./type";
+import { Icon } from "../icon";
 
 export const NavMobile = ({ navItems }: { navItems: NavBarType[] }) => {
   const [open, setOpen] = useState(false);
 
-  const toggleDrawer = (newOpen: boolean) => () => {
-    setOpen(newOpen);
-  };
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
 
   return (
-    <div>
-      <MenuIcon
-        className="cursor-pointer text-brown"
-        onClick={toggleDrawer(true)}
+    <div className="md:hidden">
+      <button
+        type="button"
+        aria-label="Open menu"
+        aria-expanded={open}
+        aria-controls="mobile-nav"
+        onClick={() => setOpen(true)}
+        className="flex h-10 w-10 items-center justify-center rounded-card text-brown transition-colors duration-200 ease-out hover:bg-ink/5"
+      >
+        <Icon name="menu" className="text-icon-lg" />
+      </button>
+
+      <div
+        onClick={() => setOpen(false)}
+        aria-hidden
+        className={`fixed inset-0 z-[310] bg-ink/50 transition-opacity duration-300 ease-out ${
+          open ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
       />
-      <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
-        <div className="flex flex-col bg-brown items-start justify-start h-screen relative">
-          <div className="flex items-center justify-between w-full px-[30px] py-4 bg-brown border-b border-light-yellow mb-[30px]">
-            <CloseIcon
-              sx={{ fontSize: 40 }}
-              className="cursor-pointer text-light-yellow"
-              onClick={toggleDrawer(false)}
-            />
-          </div>
+
+      <div
+        id="mobile-nav"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site menu"
+        inert={!open}
+        className={`surface-ink fixed inset-y-0 right-0 z-[320] flex w-[min(78vw,320px)] flex-col transition-transform duration-300 ease-out ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex items-center justify-end border-b border-cream/15 px-6 py-4">
+          <button
+            type="button"
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+            className="flex h-10 w-10 items-center justify-center rounded-card text-cream transition-colors duration-200 ease-out hover:bg-cream/10"
+          >
+            <Icon name="close" className="text-icon-lg" />
+          </button>
+        </div>
+
+        <nav aria-label="Sections" className="flex flex-col px-6 py-6">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              target={
-                item.label === "Support Center" ||
-                item.href.startsWith("Support")
-                  ? "_blank"
-                  : "_self"
-              }
-              onClick={toggleDrawer(false)}
-              className={`text-light-yellow text-[16px] mx-[30px] my-[12px] py-[4px]`}
-              // className={`text-white text-[16px] mx-[30px] my-[12px] py-[4px]
-              //   {${item.href === pathname ? "border-b-2 border-[#03FFC7]" : ""}
-              //   `}
+              onClick={() => setOpen(false)}
+              className="border-b border-cream/10 py-4 text-h3 text-cream transition-colors duration-200 ease-out hover:text-pink"
             >
               {item.label}
             </Link>
           ))}
-        </div>
-      </Drawer>
+        </nav>
+      </div>
     </div>
   );
 };

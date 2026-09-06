@@ -1,20 +1,25 @@
-"use client";
+import { andika, ranchers, sacramento } from "../../libs/fonts";
 
-import { ranchers, sacramento } from "../../libs/fonts";
 export const NameMain = () => {
   return (
-    <div className="relative text-center">
+    <div className="text-center">
+      <p
+        className={`${andika.className} text-micro uppercase tracking-[0.28em] text-teal`}
+      >
+        Software Engineer &middot; Bangkok
+      </p>
+
       <h1
-        className={`${ranchers.className}   text-title font-bold text-brown leading-none`}
+        className={`${ranchers.className} mt-3 text-display text-brown`}
       >
         KANYAPAT
-        
       </h1>
-      <h2
-          className={`${sacramento.className}  text-sub-title font-bold text-pink mt-[-5%]`}
-        >
-          Software Engineer
-        </h2>
+
+      <p
+        className={`${sacramento.className} mt-[-0.08em] text-script text-pink`}
+      >
+        Software Engineer
+      </p>
     </div>
   );
 };
